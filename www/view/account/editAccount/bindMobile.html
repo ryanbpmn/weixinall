@@ -1,0 +1,18 @@
+<ion-header-bar>
+    <button class="button button-clear button-assertive button-icon icon ion-ios-arrow-left" ng-click="back()"></button>
+    <h1 class="title">绑定手机号码</h1>
+  <!--  <button class="button button-clear button-assertive" ng-click="edit()"
+            ng-disabled="!(data.oldPass && data.newPass1&&data.newPass2)">完成</button>-->
+</ion-header-bar>
+<ion-content class="bg-grey">
+    <div class="editText">
+        <div>手机号码</div>
+        <input type="text"  ng-model="data.mobile">
+    </div>
+
+    <div class="button-bar padding">
+        <button class="button button-energized" ng-click="edit()">
+            提交验证
+        </button>
+    </div>
+</ion-content>

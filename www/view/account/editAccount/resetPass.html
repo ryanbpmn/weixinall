@@ -1,0 +1,20 @@
+<ion-header-bar>
+    <button class="button button-clear button-assertive button-icon icon ion-ios-arrow-left" ng-click="back()"></button>
+    <h1 class="title">编辑资料</h1>
+    <button class="button button-clear button-assertive" ng-click="edit()"
+            ng-disabled="!(data.oldPass && data.newPass1&&data.newPass2)">完成</button>
+</ion-header-bar>
+<ion-content class="bg-grey">
+    <div class="editText">
+        <div>原密码</div>
+        <input type="password"  ng-model="data.oldPass">
+    </div>
+    <div class="editText">
+        <div>新密码</div>
+        <input type="password"  ng-model="data.newPass1">
+    </div>
+    <div class="editText">
+        <div>确认密码</div>
+        <input type="password"  ng-model="data.newPass2">
+    </div>
+</ion-content>

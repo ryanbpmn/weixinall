@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-header-bar>
+     <button class="button button-clear button-icon icon ion-ios-arrow-left"></button>
+     <h3 class="title">爱心首页</h3>
+     <button class ="button button-clear button-assertive">我的爱心</button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat = "adv in is">
+        <img ng-src="{{adv.b}}"/>
+        <div>{{::adv.c}} {{::adv.id}}</div>
+      </ion-item>
+    </ion-list>
+    <div class="row">
+      <div class="col">基金池里已有:{{::restFund}}</div>
+      <div class="col"><button class="button" ng-click="go('loveGive')">我要献爱心</button></div>
+    </div>
+    <div class="row">
+      <div class="col"><a ng-href="#/loveWall">爱心墙</a></div>
+      <div class="col">爱心交流</div>
+      <div class="col">爱心建议</div>
+    </div>
+  </ion-content>
+</ion-view>

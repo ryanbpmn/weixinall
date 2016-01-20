@@ -1,0 +1,148 @@
+<ion-view>
+  <ion-header-bar class="bar-stable icon-right">
+    <a href="http://d.1wuye.com" class="button button-clear button-stable button-icon icon ion-ios-download"></a>
+    <h2 class="title">首页</h2>
+    <button class="button button-clear button-assertive button-icon icon ion-ios-home" ng-click="go('account')"></button>
+  </ion-header-bar>
+  <ion-content class="home">
+
+    <!-- ad section -->
+    <div class="ad">
+      <ion-slide-box  on-slide-changed="slideHasChanged($index)" show-pager="{{mainAdLength}}">
+        <ion-slide ng-repeat="ad in ads track by $index" >
+          <div><img ng-src="{{ad.b}}" style="width:100%;height:160px"/></div>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <!--<button ng-click="goMyAccount()">我的账号</button>-->
+    <!--<br>-->
+    <!-- first section -->
+    <!--<div  ng-cloak class="guanjia">-->
+    <!--<ul>-->
+    <!--<li ng-click="homeGo(M2[0])">-->
+    <!--<div> <img ng-src="{{M2[0].i}}" class="home_tja"/><p>{{M2[0].n}}</p></div>-->
+    <!--</li>-->
+    <!--<li ng-click="homeGo(M2[1])">-->
+    <!--<div> <img ng-src="{{M2[1].i}}" class="home_tja"/><p>{{M2[1].n}}</p></div>-->
+    <!--</li>-->
+    <!--<li ng-click="homeGo(M2[2])">-->
+    <!--<div> <img ng-src="{{M2[2].i}}" class="home_tja"/><p>{{M2[2].n}}</p></div>-->
+    <!--</li>-->
+    <!--<li ng-click="homeGo(M2[3])">-->
+    <!--<div><img ng-src="{{M2[3].i}}" class="home_tja"/><p>{{M2[3].n}}</p></div>-->
+    <!--</li>-->
+    <!--<div class="gj-tit">-->
+    <!--<div ng-click="homeGo({'t':m2_t})"><p>{{m2_title}}<i class="icon ion-log-in"></i></p></div>-->
+    <!--</div>-->
+    <!--</ul>-->
+    <!--<div class="other"  ng-cloak>-->
+    <!--<div ng-click="homeGo(M3[0])">-->
+    <!--<a href="#/neigh">-->
+    <!--<img ng-src="{{M3[0].i}}" class="home_tja"/>-->
+    <!--<span>{{M3[0].n}}</span></a>-->
+    <!--</div>-->
+    <!--<div ng-click="homeGo(M3[1])"><img ng-src="{{M3[1].i}}" class="home_tja"/><span>{{M3[1].n}}</span>-->
+    <!--</div>-->
+    <!--<div ng-click="homeGo(M3[2])"><img ng-src="{{M3[2].i}}" class="home_tja"/><span>{{M3[2].n}}</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="row personal row-no-padding">
+      <div class="col-10 text-left"><img src="img/ic_guangbo@2x.png"/></div>
+      <div class="col-90" style="line-height: 44px;padding-left: 10px;">{{personInfo}}</div>
+    </div>
+    <ion-list class="tz_jf_li">
+      <ion-item class="block_content">
+        <div class="blockItem_2"  ng-click="go('flea')">
+          <img src="img/ic_tiaozao@2x.png"/>
+          <div class="tz_bg"></div>
+          跳蚤市场
+        </div>
+        <div class="blockItem_2" ng-click="go('integral')">
+          <img src="img/ic_jifen@2x.png" alt=""/><br>
+          积分商城
+        </div>
+        <div class="blockItem_2" style="border-right:0;" ng-click="go('neigh')">
+          <img src="img/ic_linli@2x.png" alt=""/><br>
+          邻里
+        </div>
+      </ion-item>
+    </ion-list>
+    <!--<div class=" row tz_jf_li">-->
+    <!--<div class="col-33" >-->
+    <!--<img src="img/ic_tiaozao@2x.png" alt=""/>-->
+    <!--<div class="tz_bg"></div>-->
+    <!--跳蚤市场-->
+    <!--</div>-->
+    <!--<div class="col-33">-->
+    <!--<img src="img/ic_jifen@2x.png" alt=""/><br>-->
+    <!--积分商城-->
+    <!--</div>-->
+    <!--<div class="col-33" style="border-right:0;">-->
+    <!--<img src="img/ic_linli@2x.png" alt=""/><br>-->
+    <!--邻里-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="row fg" style="border-top:1px solid #dcdcdc;"></div>
+    <ion-list class="gj">
+      <ion-item class="item-divider item-icon-right block_head" ><span class="red_sx"></span>
+        管家服务
+        <a ui-sref="steward"><span class="more">更多</span>
+          <i style="right: 20px;color: #7d7d7d" class="icon ion-ios-arrow-right" ></i></a>
+      </ion-item>
+      <ion-item  class="block_content">
+        <div class="blockItem" ng-repeat="ss in guanJia" ng-click="goGj(ss.t,ss.id)">
+          <img ng-src="{{ss.i}}">{{ss.n}}
+        </div>
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_fangke@2x.png">-->
+          <!--<div>访客登记</div>-->
+        <!--</div>-->
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_yijian@2x.png">-->
+          <!--<div>意见建议</div>-->
+        <!--</div>-->
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_baoxiu@2x.png">-->
+          <!--<div>个人保修</div>-->
+        <!--</div>-->
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_gonggong@2x.png">-->
+          <!--<div>公共区域保修</div>-->
+        <!--</div>-->
+      </ion-item>
+    </ion-list>
+    <div class="row fg"></div>
+    <ion-list class="life">
+      <ion-item class="item-divider item-icon-right block_head"><span class="red_sx"></span>
+        生活
+        <a ui-sref="life"><span class="more">更多</span>
+          <i style="right: 20px;color: #7d7d7d" class="icon ion-ios-arrow-right" ></i></a>
+      </ion-item>
+      <ion-item class="block_content">
+        <div class="blockItem" ng-repeat="ss in nc" ng-show="ss.t==52" ng-click="goLife(ss.t,ss.id)">
+          <img ng-src="{{ss.i}}">{{ss.n}}
+        </div>
+        <div class="blockItem" ng-repeat="ss in fw" ng-show="ss.t==34||ss.t==38" ng-click="goLife(ss.t,ss.id)">
+          <img ng-src="{{ss.i}}">{{ss.n}}
+        </div>
+        <div class="blockItem" ng-repeat="ss in qs" ng-show="ss.t==48" ng-click="goLife(ss.t,ss.id)">
+          <img ng-src="{{ss.i}}">{{ss.n}}
+        </div>
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_zoubudiu@2x.png">-->
+          <!--<div>走不丢</div>-->
+        <!--</div>-->
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_zhineng@2x.png">-->
+          <!--<div>智能挪车</div>-->
+        <!--</div>-->
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_caipu@2x.png">-->
+          <!--<div>菜谱</div>-->
+        <!--</div>-->
+        <!--<div class="blockItem">-->
+          <!--<img ng-src="img/ic_jiankang@2x.png">-->
+          <!--<div>每日健康</div>-->
+        <!--</div>-->
+      </ion-item>

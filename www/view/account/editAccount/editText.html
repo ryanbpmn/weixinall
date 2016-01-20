@@ -1,0 +1,11 @@
+<ion-header-bar>
+    <button class="button button-clear button-assertive button-icon icon ion-ios-arrow-left" ng-click="back()"></button>
+    <h1 class="title">编辑资料</h1>
+    <button class="button button-clear button-assertive" ng-click="edit()">保存</button>
+</ion-header-bar>
+<ion-content class="bg-grey">
+    <div class="editText">
+        <div>{{data.tit}}</div>
+        <input type="text" value="{{data.v}}" ng-model="data.v">
+    </div>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-view>
+<ion-header-bar>
+  <button ng-click="back()" class="button button-clear button-assertive button-icon icon ion-ios-arrow-left"></button>
+  <div class="title">我的消息</div>
+</ion-header-bar>
+    <div class="row ">
+      <div class="bar button-bar bar-subheader">
+        <button class="no-margin-top no-margin-bottom button button-block button-full button-balanced icon-right ion-navicon"
+          ng-click="isClick=!isClick" ng-model="isClick" >
+          分类:{{type}}
+        </button>
+      </div>
+      <ion-list class="row row-no-padding" ng-show="isClick">
+        <ion-item ng-repeat = "x in cates" ng-click="changeType(x)">
+          {{x.name}}
+        </ion-item>
+      </ion-list>
+     <!-- <a class=" menu-content row item row-no-padding" ng-click="searchData()"   ng-repeat="x  in cates">
+        {{x.name}}
+      </a>-->
+    </div>
+<ion-content class="has-subheader">
+  <ion-refresher pulling-text="下拉刷新..." on-refresh="refresh()"></ion-refresher>
+  <!--<div class="collectList">
+    <a ng-repeat="m in messages">
+      <img src="{{m.icon}}">
+      <h1>{{m.title}}</h1>
+      <p class="ellipsis-line2">{{m.desc}}</p>
+      <span>{{m.date}}</span>
+    </a>
+  </div>-->
+  <ion-list>
+    <ion-item ng-repeat="m in messages">
+      <div class="collectList">
+        <a>
+          <img src="{{m.icon}}">
+          <h1>{{m.title}}</h1>
+          <p class="ellipsis-line2">{{m.desc}}</p>
+          <span>{{m.date}}</span>
+        </a>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="canLoad" immediate-check="false"></ion-infinite-scroll>
+</ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+
+<ion-header-bar>
+  <button ng-click="back()" class="button button-clear button-assertive button-icon icon ion-ios-arrow-left"></button>
+  <div class="title">我的收藏</div>
+</ion-header-bar>
+<div class="bar bar-subheader mySelect oneSelect">
+  <div class="item item-select">
+    <div class="input-label"><img src="images/option.png">分类 - <span>{{search.c==32?'笑话':cates[search.c-1].name}}</span></div>
+    <select ng-options="x.id as x.name for x in cates" ng-model="search.c" ng-change="searchData()"></select>
+  </div>
+</div>
+<ion-content class="has-subheader">
+  <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+  <div class="collectList">
+    <a ng-repeat="c in collects" ng-click="goCollect(c.category_id)">
+      <img src="{{c.icon}}">
+      <h1>{{c.title}}</h1>
+      <p class="ellipsis-line2">{{c.desc}}</p>
+      <span>收藏时间：{{c.date}}</span>
+    </a>
+  </div>
+  <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="canLoad">
+  </ion-infinite-scroll>
+</ion-content>

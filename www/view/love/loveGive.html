@@ -1,0 +1,17 @@
+<ion-view>
+    <ion-header-bar>
+      <button class="button button-clear button-icon icon ion-ios-arrow-left"></button>
+      <h3 class="title">献爱心</h3>
+    </ion-header-bar>
+  <ion-content>
+    <ion-item>
+      <img ng-src=""/>
+    </ion-item>
+    <ion-item>
+      <span>输入你要捐款的金额</span>
+      <input type="number" ng-model="money"/>
+      <button class="button button-clear" ng-click="donate()">捐款</button>
+      <input type="checkbox" ng-model="isName" name="isName" value="捐赠名字显示为不留名的好心人"/>
+    </ion-item>
+  </ion-content>
+</ion-view>

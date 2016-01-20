@@ -1,0 +1,59 @@
+<ion-view>
+
+    <ion-header-bar align-title="center" class="header bar-energized light">
+        <h1 class="title flex-box flex-box-vertical-center flex-box-horizontal-center"><img src="../www/img/logo.png"
+                                                                                            style="width: 40px;height: 40px"/>
+            小区选择</h1>
+    </ion-header-bar>
+    <div class="bar bar-subheader item-input-inset">
+
+        <label class="item-input-wrapper">
+            <input type="search" placeholder="清水湾/qingshuiwan/qs/qsw" ng-model="schar"/>
+        </label>
+      <button class="button button-icon button-clear ion-search  button-energized" ng-click="select(schar)"></button>
+    </div>
+    <ion-content class="has-subheader">
+
+
+        <ion-list class="list">
+          <div class="list card" ng-show="properties.length== 0 && initProperties.length !=0">
+            <h1>帮助提示：</h1>
+
+            <p>1、<span class="assertive">请输入您所在小区的名称或首字母拼音</span>，系统将智能匹配；例如：对“清水湾”小区，您可输入“qsw”。</p>
+
+            <p>2、请根据匹配结果，选择您所在小区。</p>
+
+            <p>3、请根据您手机的类别，选择下载和安装您小区的App。</p>
+            <img src="images/bg-help.jpg"/>
+          </div>
+           <!-- <div class="item item-icon-right"
+
+                 ng-repeat="pro in properties | filter:listFilter | orderBy:'toString()' track by $index"
+                 ng-click="goUrl(pro.communityNo,pro.propertyName)">
+                <h1 ng-bind="pro.propertyName"></h1>
+                <p style="height: 30px;line-height: 30px;margin-top: 10px">
+                  地址:<span ng-bind="pro.pAddr" style="white-space: normal"></span>
+                </p>
+            </div> -->
+          <ion-item class="item item-icon-right"
+               ng-repeat="pro in properties"
+               ng-click="goUrl(pro.cNo,pro.pName)">
+            <h1 ng-bind="pro.pName"></h1>
+            <p style="">
+              地址1:<span ng-bind="pro.pAddr" style="white-space: normal"></span>
+            </p>
+          </ion-item>
+        </ion-list>
+
+      <ion-infinite-scroll on-infinite="loadMore(schar)" distance="1%" immediate-check="false" ng-if="hasNext">上拉加载更多...</ion-infinite-scroll>
+    </ion-content>
+
+  <!--<ion-scroll style="width: 40px;position: fixed;left:90%;top:88px;height: 98%;bottom: 30px">
+    <button class="button-small button-clear " style="line-height: 15px;min-height: 15px" ng-repeat="w in words track by $index" ng-click="setSearch(w)"><i class="positive">
+      {{w}}</i></button>
+    <div style="height: 75px"></div>
+  </ion-scroll>
+   <ion-spinner icon="bubbles" class="spinner-energized"></ion-spinner>
+   <div class="tip" ng-show="hasNext"> 下拉显示更多数据....</div>
+  -->
+</ion-view>

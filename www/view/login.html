@@ -1,0 +1,68 @@
+<style>
+  .loginPage .item-input-wrapper input {
+    height: 40px;
+    width: 100%;
+
+  }
+  .loginPage .item-input-wrapper i{
+    color: #aaa;
+  }
+  .bg {
+    background-image:url('img/login/pic_bg@2x.png');
+    background-repeat:repeat;
+    background-size:cover;
+    background-color:rgb(0,0,0,0.2);
+  }
+</style>
+<ion-view class="bg">
+
+  <!-- logo -->
+  <ion-content>
+   <div class="text-center" style="margin-top:40px;height:30%">
+     <img src="img/login/pic_morentx@2x.png" width="80px" height="80px"/>
+   </div>
+   <div class="text-center">
+    <span>翼社区,时尚你的家居生活</span>
+   </div>
+  <div class="list padding"  style="margin-top:82px;">
+    <ion-input class="item item-input item-borderless"
+           ng-style = "focustyle1">
+      <!--<img src="img/login/pic_user@2x.png" width="35px" height="35px"/>-->
+      <i class="icon  ion-ios-person" style="font-size:22px;color:dodgerblue"></i>
+      <span  class="padding-right padding-left icon-left" style="font-size:16px"
+          ng-style="focusColor1"
+        >用户名</span>
+      <input type="text" ng-model="login.username" placeholder="请输入用户名/手机号"
+             ng-focus="focusColor1={'color':'dodgerblue'};focustyle1={'border-width':' 0 0 3px','border-style':'solid','border-color':'dodgerblue'}"
+             ng-blur = "focusColor1={'color':'black'};focustyle1={'border-width':' 0 0 1px','border-style':'solid','border-color':'lightgray'}"
+        />
+    </ion-input>
+
+    <ion-input class="item item-input icon-left  item-borderless" style="margin-top:32px;"
+         ng-style = "focustyle">
+      <i class="icon ion-ios-locked"  style="font-size:22px;color:orangered;"></i>
+      <span  class=" padding-right padding-left" style="font-size:16px" ng-style="focusColor">密&nbsp;码</span>
+      <input type="password" ng-model="login.password" placeholder="请输入密码"/>
+    </ion-input>
+  </div>
+
+      <!-- login button
+           <md-button class="md-warn md-raised button-full button padding" style="width:98%;"
+
+             >
+             登录
+           </md-button>
+    -->
+      <div class="list padding">
+        <button class="button button-full button-assertive md-focused"
+               ng-click="loginAction()">
+          登录
+        </button>
+      </div>
+      <!-- reg button -->
+      <div class="list padding  text-center">
+        <a ng-href="#/reg" style="font-color:#c46141;font-weight:bold;">还没有帐号,立即注册 > </a>
+      </div>
+  </ion-content>
+
+</ion-view>

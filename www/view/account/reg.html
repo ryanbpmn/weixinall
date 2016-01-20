@@ -1,0 +1,146 @@
+
+<ion-view>
+  <ion-header-bar>
+    <button class="button button-clear button-assertive button-icon icon ion-ios-arrow-left"
+            ng-click="goBack()"></button>
+    <h2 class="title">快速注册</h2>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <item class="item  item-input">
+        <img src="img/login/ic_user@2x.png" width="25px;" height="25px"/>
+        <span class="padding-right padding-left">用户名</span>
+        <input type="text" placeholder="请输入手机号" ng-model="formModel.username"/>
+      </item>
+      </div>
+
+    <div class="list">
+      <item class="item  item-input  padding-right">
+        <img src="img/login/ic_yanzhengma@2x.png" width="25px;" height="25px"/>
+        <span class="padding-right padding-left">验证码</span>
+        <input type="text" placeholder="验证码" ng-model="formModel.checkCode">
+        <button class="button button-assertive button-small" ng-disabled="!formModel.username" ng-click="getCode()">获取验证码</button>
+      </item>
+      </div>
+
+    <div class="list">
+      <item class="item item-input">
+        <img src="img/login/ic_mima@2x.png" width="25px;" height="25px"/>
+        <span class="padding-right padding-left">密码</span>
+        <input type="text" placeholder="请输入密码"  ng-model="formModel.pass">
+      </item>
+      </div>
+
+    <div class="list">
+      <item class="item item-input">
+        <img src="img/login/ic_mima@2x.png" width="25px;" height="25px"/>
+        <span class="padding-right padding-left">确认密码</span>
+        <input type="text" placeholder="请重新输入密码"  ng-model="formModel.pass2" ng-class="{assertive:formModel.pass!=formModel.pass2}">
+      </item>
+      </div>
+    <div class="list">
+      <item class="item item-input">
+
+        <img src="img/login/ic_xiaoqu@2x.png" width="25px;" height="25px"/>
+        <span class="padding-right padding-left">小区</span>
+        <select>
+          <option  ng-repeat="p in properties" ng-selected="formModel.property=p.name;formModel.propertyId=p.id;">{{p.name}}</option>
+        </select>
+      </item>
+      </div>
+
+
+        <p> 系统检测到你附近的小区,如果小区列表里没有数据,还不能注册,请联系我们.</p>
+    <button class="button button-assertive button-full" ng-click="register()">注册</button>
+  </ion-content>
+  <!--
+  <ion-content class="loginBg resetPass">
+    <div class="list">
+      <ion-item class="item bg-none item-input-inset item-borderless">
+        <label class=" input-label  light-bg assertive text-center">
+          手机号</label>
+
+        <div class="item-input-wrapper light-bg">
+          <input type="text" placeholder="请输入您注册的手机号码" ng-model="formModel.username">
+        </div>
+
+      </ion-item>
+      <div class="item bg-none item-input-inset item-borderless">
+
+        <label class=" input-label  light-bg assertive text-center">
+          验证码
+        </label>
+
+        <div class="item-input-wrapper light-bg">
+          <input type="text" placeholder="请输入验证码" ng-model="formModel.checkCode">
+        </div>
+
+        <button class="button button-assertive button-small" ng-disabled="!formModel.username" ng-click="getCode()">获取验证码</button>
+
+
+      </div>
+      <div class="item bg-none item-input-inset item-borderless">
+        <label class=" input-label  light-bg assertive text-center">
+          新密码
+        </label>
+
+        <div class="item-input-wrapper light-bg">
+          <input type="password" placeholder="请输入新密码" ng-model="formModel.pass">
+        </div>
+
+      </div>
+      <div class="item bg-none item-input-inset item-borderless">
+        <label class=" input-label  light-bg assertive text-center">确认密码
+        </label>
+
+        <div class="item-input-wrapper light-bg">
+          <input type="password" placeholder="请输入确认新密码" ng-model="formModel.pass2">
+        </div>
+
+      </div>
+
+
+      <div class="item bg-none item-input-inset item-borderless">
+        <label class=" input-label  light-bg assertive text-center">
+          小区
+        </label>
+
+        <div class="item-input-wrapper light-bg">
+
+          <div class="item-input-wrapper light-bg">
+            <input type="text" placeholder="请选择小区" readonly ng-model="formModel.property">
+            <input type="hidden" ng-model="formModel.propertyId"/>
+          </div>
+        </div>
+        <button class="button button-assertive button-small" ng-click="popover.show($event)">选择小区</button>
+
+      </div>
+      <div class="item bg-none item-content assertive item-borderless" ng-if="formModel.oproperty">
+        系统自动检测到您目前小区是{{formModel.oproperty}},你可以重新选择，修改当前小区.
+      </div>
+      <div class="item bg-none button-bar item-borderless">
+        <button class="button button-assertive" ng-click="register()"
+                ng-disabled="!formModel.checkCode||!formModel.pass||!formModel.pass2||!formModel.username||!formModel.property">
+          提交
+        </button>
+      </div>
+      <div class="item bg-none item-content positive item-borderless">
+        点击上面的"注册"按钮，即表示您同意《软件许可及服务协议》
+      </div>
+    </div>
+  </ion-content>-->
+</ion-view>
+
+<script id="templates/popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-content>
+      <div class="list">
+        <div class="item" ng-repeat="p in properties"
+             ng-click="formModel.property=p.name;formModel.propertyId=p.id;popover.hide()">
+          {{p.name}}
+        </div>
+
+      </div>
+    </ion-content>
+  </ion-popover-view>
+</script>

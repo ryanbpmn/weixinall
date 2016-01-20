@@ -1,0 +1,205 @@
+<ion-view view-title="我">
+
+  <ion-header-bar>
+    <button class="button button-clear button-assertive button-icon icon ion-ios-arrow-left" ng-click="go('home')"></button>
+    <h1 class="title"></h1>
+  </ion-header-bar>
+  <ion-content class="bg-grey" on-swipe-right="last()">
+    <div class="mySelf" ng-click="go('getData')">
+      <img src="{{infos.icon}}">
+      <p>昵称：{{infos.nick}}</p>
+      <p>帐号：{{infos.a}}</p>
+      <p>地址：{{infos.address}}</p>
+      <i class="icon ion-chevron-right"></i>
+    </div>
+    <ion-list>
+
+      <ion-item class="item-divider item-icon-right">
+        <span>我的订单</span>
+        <span class="item-note">查看我的所有订单</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item-complex">
+          <div class="row row-center text-center">
+            <a class="col " ng-click="orders('pay')">
+                <i class="icon ion-social-yen-outline positive fill-icon"></i>
+                <span ng-if="toBe.pay" class="order-bage">{{toBe.pay}}</span>
+                <p>待付款</p>
+            </a>
+            <a class="col"  ng-click="orders('process')">
+              <i class="icon ion-ios-bookmarks-outline fill-icon"></i>
+              <span ng-if="toBe.process"  class="order-bage">{{toBe.process}}</span>
+              <p>待受理</p></a>
+            <a class="col"  ng-click="orders('confirm')">
+              <i class="icon ion-ios-checkmark-outline fill-icon"></i>
+              <span ng-if="toBe.confirm"  class="order-bage">{{toBe.confirm}}</span>
+              <p>待确认</p></a>
+            <a class="col"  ng-click="orders('comment')">
+              <i class="icon ion-ios-rose-outline fill-icon"></i>
+              <span ng-if="toBe.comment"  class="order-bage">{{toBe.comment}}</span>
+              <p>待评价</p></a>
+            <a class="col">
+              <i class="icon ion-ios-loop fill-icon"  ng-click="orders('back')"></i>
+              <span ng-if="toBe.refund"  class="order-bage">{{toBe.refund}}</span>
+
+              <p>售后/退款</p></a>
+          </div>
+      </ion-item>
+      <ion-item class="item-icon-left item-icon-right">
+        <i class="icon ion-ios-cart-outline assertive"></i>
+        <span>购物车</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-left item-icon-right item-button-right" ng-click="go('myAccount')">
+        <i class="icon ion-ios-person-outline "></i>
+        <span>我的帐户</span>
+        <!--<button ng-click="alert('c')" class="button button-clear icon-left ion-card">充值</button>-->
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-left item-icon-right">
+        <i class="icon ion-ios-box-outline "></i>
+        <span>我的卡券包</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item-divider"></ion-item>
+      <ion-item class="item-icon-left item-icon-right" ng-click="go('myCollect')">
+          <i class="icon ion-ios-star-outline "></i>
+          <span>我的收藏</span>
+          <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-left item-icon-right" ng-click="go('myMessage')">
+        <i class="icon ion-ios-chatboxes-outline "></i>
+        <span>我的消息</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <!--<ion-item class="item-icon-left item-icon-right">
+        <i class="icon ion-ios-clock-outline"></i>
+        <p>会话历史</p>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>-->
+      <ion-item class="item-divider"></ion-item>
+      <ion-item class="item-icon-left item-icon-right">
+        <i class="icon ion-ios-personadd-outline "></i>
+        <span> 邀请好友</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+
+      <ion-item class="item-icon-left item-icon-right " disabled>
+        <i class="icon ion-ios-email-outline "></i>
+        <span>意见反馈</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <button class="button button-full   button-assertive"  ng-click="exit()">登出登录</button>
+<!--
+      <ion-item class="myItem">
+        <div class="myIndent">
+          我的订单
+          <span>查看我所有订单 <i class="icon ion-chevron-right"></i></span>
+        </div>
+        <ul class="indentMenus">
+          <li>
+            <A href="#/orderList">
+              <i class="icon ion-social-yen-outline"></i>
+              <span ng-if="toBe.pay">{{toBe.pay}}</span>
+              <p>待付款</p>
+            </A>
+          </li>
+          <li>
+            <i class="icon ion-ios-bookmarks-outline"></i>
+            <span ng-if="toBe.process">{{toBe.process}}</span>
+            <p>待受理</p>
+          </li>
+          <li>
+            <i class="icon ion-ios-checkmark-outline"></i>
+            <span ng-if="toBe.confirm">{{toBe.confirm}}</span>
+
+            <p>待确认</p>
+          </li>
+          <li>
+            <i class="icon ion-ios-rose-outline"></i>
+            <span ng-if="toBe.comment">{{toBe.comment}}</span>
+
+            <p>待评价</p>
+          </li>
+          <li>
+            <i class="icon ion-ios-loop"></i>
+            <span ng-if="toBe.refund">{{toBe.refund}}</span>
+
+            <p>售后/退款</p>
+          </li>
+        </ul>
+      </ion-item>
+      <ion-item class="accountItem">
+        <ul class="list-icon-left">
+          <li>
+            <a href="#/orderCart">
+              <div>
+                <i class="icon ion-ios-cart-outline"></i>
+              </div>
+              购物车
+            </a>
+          </li>
+          <li ng-click="go('myAccount')">
+            <div>
+              <i class="icon ion-ios-person-outline"></i>
+            </div>
+            我的帐户
+            <button class="recharge button-clear" ng-click="go('main.recharge',$event)"><i
+              class="icon ion-card"></i><span>充值</span></button>
+          </li>
+          <li>
+            <div>
+              <i class="icon ion-ios-box-outline"></i>
+            </div>
+            我的卡券包
+          </li>
+        </ul>
+      </ion-item>
+      <ion-item class="accountItem">
+        <ul class="list-icon-left">
+          <li>
+            <a href="#/myCollect">
+              <div>
+                <i class="icon ion-ios-star-outline"></i>
+              </div>
+              我的收藏
+            </a>
+          </li>
+          <li>
+            <a href="#/myMessage">
+              <div>
+                <i class="icon ion-ios-chatboxes-outline"></i>
+              </div>
+              我的消息
+            </a>
+          </li>
+          <li>
+            <div>
+              <i class="icon ion-ios-clock-outline"></i>
+            </div>
+            会话历史
+          </li>
+        </ul>
+      </ion-item>
+      <ion-item class="myItem">
+        <ul class="list-icon-left">
+          <li>
+            <div class="bg-blue">
+              <i class="icon ion-ios-personadd-outline"></i>
+            </div>
+            邀请好友
+          </li>
+          <li>
+            <div>
+              <i class="icon ion-ios-email-outline"></i>
+            </div>
+            意见反馈
+          </li>
+        </ul>
+      </ion-item>
+    </ion-list>
+    <button class="button button-full button-light myExit" ng-click="exit()">
+      退出登录
+    </button>-->
+  </ion-content>
+</ion-view>
